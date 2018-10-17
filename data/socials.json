@@ -1,0 +1,38 @@
+[
+    {
+        "name": "telegram",
+        "shareUrl": "https://t.me/share/url",
+        "query": {
+            "url": "url",
+            "title": false,
+            "image": false
+        }
+    },
+    {
+        "name": "facebook",
+        "shareUrl": "https://www.facebook.com/sharer/sharer.php",
+        "query": {
+            "url": "u",
+            "title": "t",
+            "image": false
+        }
+    },
+    {
+        "name": "pinterest",
+        "shareUrl": "https://www.pinterest.com/pin/create/button/",
+        "query": {
+            "url": "url",
+            "title": "description",
+            "image": "media"
+        }
+    },
+    {
+        "name": "twitter",
+        "shareUrl": "https://twitter.com/share",
+        "query": {
+            "url": "url",
+            "title": "text",
+            "image": false
+        }
+    }
+]
