@@ -3,7 +3,7 @@
     <div class="header-content">
         <div class="tolyk">
             <p class="tolyk_name">Tolyk.</p>
-            <p class="tolyk_about"></p>
+            <p class="tolyk_about">{{ $t('about') }}</p>
         </div>
         <ul class="lang-switcher">
             <li
@@ -45,6 +45,7 @@ export default {
 
 .header-content {
     position: relative;
+    margin-top: 20px;
 }
 
 .tolyk_name {
@@ -53,15 +54,22 @@ export default {
     font-size: 10vw;
     font-weight: bold;
     color: @accent-color;
-    margin: 0;
+    margin-bottom: 0;
+    margin-top: -.1em;
     line-height: initial;
+        @media (min-width: 1280px) {
+            font-size: 130px;
+        }
 }
 
 .tolyk_about {
-    margin: 0;
     max-width: 300px;
+    margin-bottom: 0;
+    margin-top: 1vw;
+    padding-right: 100px;
     display: inline-block;
     vertical-align: top;
+    line-height: 1.2em;
 }
 
 .lang-switcher {
@@ -70,7 +78,8 @@ export default {
     right: 0;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin-bottom: 0;
+    margin-top: .8vw;
 
     &__item {
         display: inline-block;

@@ -141,8 +141,8 @@ em {
     box-sizing: border-box;
     padding-left: 5vw;
     padding-right: 5vw;
-    padding-top: 3vw;
-    padding-bottom: 3vw;
+    // padding-top: 3vw;
+    // padding-bottom: 3vw;
 }
 
 .static-layout {
