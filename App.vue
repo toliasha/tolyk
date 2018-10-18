@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div id="KARTON" ref="KARTON" :class="style" :style="{backgroundColor: bgColor}">
+    <div id="tolyk" ref="tolyk" :class="style">
         <t-header v-if="!hideBlock"/>
         <keep-alive>
             <router-view/>
@@ -23,33 +23,19 @@ export default {
     el: '#app',
     i18n,
     render: r => r(this),
-    name: 'KARTON',
+    name: 'tolyk',
     created() {
         let lang = VueCookie.get('lang');
         if (!lang) {
             lang = navigator.language.split('-')[0];
         }
-        this.$locale.change(lang === 'ru' || lang === 'uk' ? lang : config.defaultLang);
-    },
-    mounted() {
-        this.loading = true;
-        GET('/what-we-have', res => {
-            this.logos = res;
-            this.loading = false;
-        });
+        this.$locale.change(lang === 'en' || lang === 'uk' ? lang : 'uk');
     },
     data() {
         return {
-            bgColor: '#FFDD44',
-            style: 'white',
-            logos: [],
-            loading: false
         }
     },
     watch: {
-        bgColor() {
-            this.style = hexToHSL(this.bgColor ? this.bgColor : '#FFDD44').l > 35 ? 'white' : 'black';
-        },
         '$i18n.locale': function() {
             document.title = this.$i18n.t(this.$route.name);
         }
@@ -64,84 +50,52 @@ export default {
 
 <style lang="less">
 @font-face {
-    font-family: 'KARTON';
+    font-family: 'tolyk';
     src: url('https://cdn.thekarton.com/fonts/bold.woff') format('woff');
     font-weight: bold;
 }
 @font-face {
-    font-family: 'KARTON';
+    font-family: 'tolyk';
     src: url('https://cdn.thekarton.com/fonts/regular.woff') format('woff');
     font-weight: normal;
 }
+@font-face {
+    font-family: 'mono';
+    src: url('/fonts/pt-mono-regular.woff') format('woff');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'mono';
+    src: url('/fonts/pt-mono-bold.woff') format('woff');
+    font-weight: bold;
+}
+
+@bg-color: #315;
+@accent-color: #fa0;
 
 html, body {
     padding: 0;
     margin: 0;
-    font-family: KARTON, -apple-system, BlinkMacSystemFont, Segoe UI, Arial;
-    font-size: 18px;
-    background-color: black;
+    font-family: tolyk, -apple-system, BlinkMacSystemFont, Segoe UI, Arial;
+    font-size: 17px;
+    background-color: @bg-color;
     color: white;
     line-height: 1em;
     -webkit-font-smoothing: antialiased;
+    user-select: none;
 }
 
-@juice: #fd4;
-@violet: #80f;
-
-#KARTON {
+#tolyk {
     box-sizing: border-box;
-    background-color: @juice;
-    color: black;
+    background-color: @bg-color;
+    color: white;
     padding-bottom: 2em;
-
-    &.black {
-        color: white;
-
-        .logo {
-            fill: white;
-        }
-
-        a {
-            color: #fd4;
-        }
-
-        .link-svg {
-            fill: #fd4;
-        }
-
-        .socials {
-            &__button {
-                background-color: white;
-                color: black;
-
-                svg { fill: black; }
-                &:before, &:after { background-color: white; }
-            }
-        }
-
-        a.order-button {
-            color: black;
-            background-color: #fd4;
-        }
-
-        ._dashed {
-            border: 2px dashed fadeout(white, 70%);
-        }
-    }
 }
 
 a {
     text-decoration: none;
     color: blue;
-    //border-bottom: 1px solid fadeout(black, 80%);
-}
-
-.link-svg {
-    fill: blue;
-}
-
-._dashed {
-    border: 2px dashed fadeout(black, 70%);
+    border-bottom: 1px solid fadeout(black, 80%);
 }
 
 h1, h2, h3, h4 {
@@ -176,50 +130,6 @@ center {
     text-align: center;
 }
 
-i {
-    font-size: 0;
-    display: block;
-    height: 1rem;
-
-    &[small] { height: .5rem; }
-}
-
-.t_a_c {
-    text-align: center;
-}
-
-.logo {
-    display: inline-block;
-}
-
-nav {
-    display: block;
-    text-align: center;
-
-    .menu-item {
-        color: inherit !important;
-        text-decoration: none;
-        font-size: 1.2em;
-        display: inline-block;
-        padding: .3em 0;
-        position: relative;
-
-        &.router-link-exact-active {
-            &:after {
-                content: '';
-                position: absolute;
-                display: block;
-                bottom: 0;
-                background-color: black;
-                width: 100%; height: 2px;
-                left: 0;
-            }
-        }
-    }
-
-    .menu-item + .menu-item { margin-left: 1em; }
-}
-
 em {
     display: block;
     font-size: .8em;
@@ -240,15 +150,6 @@ em {
     max-width: 600px;
 }
 
-.r-crossbar__arrow {
-    display: none;
-}
-
-.r-button {
-    border-radius: 95px e('/') 100px;
-    cursor: pointer;
-}
-
 .loader {
     text-align: center;
     padding: 10vh 0;
@@ -260,13 +161,4 @@ em {
     }
 }
 
-.router-link-exact-active {
-    cursor: default;
-}
-
-@media (max-width: 600px) {
-    body {
-        //font-size: 15px;
-    }
-}
 </style>

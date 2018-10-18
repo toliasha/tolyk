@@ -7,8 +7,6 @@ import Image from './blocks/image.vue';
 Vue.component('t-image', Image);
 import SVG from './blocks/svg.vue';
 Vue.component('t-svg', SVG);
-import Socials from './blocks/socials.vue';
-Vue.component('socials', Socials);
 
 import Vue from 'vue';
 import App from './App.vue';

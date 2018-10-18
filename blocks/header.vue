@@ -1,81 +1,92 @@
 <template>
-<header :class="{'showcase__header': showcase}">
-    <div>
-        <router-link :to="'/'">
-            <svg class="logo" viewBox="0 0 500 200">
-                <use xlink:href="#karton-logo"/>
-            </svg>
-        </router-link>
-        <h1 class="header__slogan" v-html="$t('slogan')"></h1>
+<header class="waist">
+    <div class="header-content">
+        <div class="tolyk">
+            <p class="tolyk_name">Tolyk.</p>
+            <p class="tolyk_about"></p>
+        </div>
+        <ul class="lang-switcher">
+            <li
+                class="lang-switcher__item"
+                v-for="lang of langs"
+                :class="{'lang-switcher__item_selected': $i18n.locale == lang.id }"
+                @click="$locale.change(lang.id)"
+            >
+                {{ lang.title }}
+            </li>
+        </ul>
     </div>
-    <r-button v-if="$route.name !== 'order'" class="order-button r-button_accented" @push="$router.push('/order')" :caption="$t('i-want-logo')"/>
 </header>
 </template>
 
 <script>
 export default {
-    computed: {
-        showcase() {
-            return this.$route.name === 'showcase';
+    data() {
+        return {
+            // year: new Date().getFullYear(),
+            langs: [
+                {
+                    title: 'УКР',
+                    id: 'uk'
+                },
+                {
+                    title: 'ENG',
+                    id: 'en'
+                }
+            ]
         }
     }
 }
 </script>
 
 <style lang="less">
-header {
-    height: 4rem;
-    display: flex;
-    justify-content: space-between;
-    z-index: 1;
-    box-sizing: border-box;
-    align-items: center;
+@bg-color: #315;
+@accent-color: #fa0;
+
+.header-content {
     position: relative;
-    padding: 0 5vw;
+}
 
-    &.showcase__header {
-        display: block;
-        height: auto;
-        text-align: center;
-        padding: 3vw 5vw;
+.tolyk_name {
+    display: inline-block;
+    font-family: 'mono';
+    font-size: 10vw;
+    font-weight: bold;
+    color: @accent-color;
+    margin: 0;
+    line-height: initial;
+}
 
-        .header__slogan {
-            display: block;
-            padding: 3vw 0;
+.tolyk_about {
+    margin: 0;
+    max-width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.lang-switcher {
+    position: absolute;
+    top: 0;
+    right: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+        display: inline-block;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 13px;
+        padding-bottom: 2px;
+        letter-spacing: 1px;
+
+        &_selected {
+            color: @accent-color;
+            border-bottom: solid 2px;
         }
 
-        .logo {
-            width: auto;
-            max-width: 700px;
-        }
-
-        .order-button {
-            font-size: 1.4em;
-        }
-    }
-
-    .header__slogan {
-        display: none;
-    }
-
-    .logo {
-        width: 140px;
+        & + & { margin-left: 1em; }
     }
 }
 
-.order-button {
-    background-color: purple;
-    background-image: linear-gradient(to right, purple, lighten(purple, 5%));
-    box-shadow: 0 5px 10px -5px purple;
-}
-
-@media (max-width: 400px) {
-    header {
-        font-size: .8em;
-
-        .logo {
-            width: 110px;
-        }
-    }
-}
 </style>
