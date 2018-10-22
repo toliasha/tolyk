@@ -2,9 +2,8 @@
 <div class="projects-wrap waist XXL-5-col XL-4-col L-3-col M-2-col S-1-col">
     <div class="project karton grid__box" v-for="project in projects">
         <div class="project__title">
-            <a>
-                {{ project.title }}
-                <svg class="new-tab" viewBox="0 0 24 21">
+            <a :href="project.link" target="_blank">
+                {{ project.title }}<svg class="new-tab" viewBox="0 0 24 21">
                     <use xlink:href="#new-tab"/>
                 </svg>
             </a>
@@ -29,6 +28,7 @@ export default {
             projects: [
                 {
                     title: 'Karton',
+                    link: 'https://thekarton.com/',
                     description: {
                         uk: 'Я разом з колегою зробили власний проект. Сайт, на якому молоді хлопці та дівчата можуть замовити крутий логотип всього за три дні.',
                         en: 'I, along with my colleague, made our own project. A site where young people can order a cool logo in just three days.'
@@ -41,6 +41,7 @@ export default {
                 },
                 {
                     title: 'OLL.TV',
+                    link: 'https://oll.tv/',
                     description: {
                         uk: 'Сервіс з великим вибором фільмів, серіалів і телеканалів.',
                         en: 'A huge library of movies, series and TV-channels.'
@@ -53,6 +54,7 @@ export default {
                 },
                 {
                     title: 'Kyivstar Football',
+                    link: 'http://kyivstar.oll.tv/',
                     description: {
                         uk: 'Сайт для футбольних фанів — трансляція популярних європейських чемпіонатів та кращих футбольних телеканалів України.',
                         en: 'Site for football fans — popular European championships and ukrainian football channels stream.'
@@ -72,10 +74,18 @@ export default {
 <style lang="less">
 @bgColor: #315;
 @accentColor: #fa0;
+@S: 400px;
+@M: 770px;
+@L: 1000px;
+@XL: 1300px;
+@XXL: 1600px;
 
 .projects-wrap {
     display: table;
     margin: 5vw -20px 0;
+    @media (max-width: @M) {
+        margin: 40px -20px 0;
+    }
 
     .project {
         display: inline-block;
@@ -91,12 +101,19 @@ export default {
                 font-family: 'mono';
                 font-size: 35px;
                 font-weight: bold;
+                @media (max-width: @M) {
+                    font-size: 25px;
+                }
+                @media (max-width: @S) {
+                    font-size: 20px;
+                }
             }
 
             & .new-tab {
-                width: 24px;
+                width: .8em;
+                vertical-align: bottom;
                 fill: @accentColor;
-                margin-left: 4px;
+                margin-left: .2em;
             }
         }
 
