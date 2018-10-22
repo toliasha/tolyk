@@ -70,71 +70,76 @@ export default {
     font-weight: bold;
 }
 
-@bg-color: #315;
-@accent-color: #fa0;
+@bgColor: #315;
+@accentColor: #fa0;
+
+.grid(@columns; @size; @index: 1) when (@index =< @columns) {
+    .grid(@columns; @size; (@index + 1));
+    .@{size}-@{index}-col .grid__box {
+        width: percentage(1 / @index);
+    }
+}
+
+@S: 400px;
+@M: 770px;
+@L: 1000px;
+@XL: 1300px;
+@XXL: 1600px;
+
+@media (max-width: @XXL) {
+    .grid(5, XXL);
+}
+
+@media (max-width: @XL) {
+    .grid(4, XL);
+}
+
+@media (max-width: @L) {
+    .grid(3, L);
+}
+
+@media (max-width: @M) {
+    .grid(2, M);
+}
+
+@media (max-width: @S) {
+    .grid(1, S);
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
 
 html, body {
-    padding: 0;
-    margin: 0;
     font-family: tolyk, -apple-system, BlinkMacSystemFont, Segoe UI, Arial;
     font-size: 17px;
-    background-color: @bg-color;
+    background-color: @bgColor;
     color: white;
-    line-height: 1em;
     -webkit-font-smoothing: antialiased;
     user-select: none;
 }
 
 #tolyk {
     box-sizing: border-box;
-    background-color: @bg-color;
+    background-color: @bgColor;
     color: white;
     padding-bottom: 2em;
 }
 
 a {
     text-decoration: none;
-    color: blue;
-    border-bottom: 1px solid fadeout(black, 80%);
-}
+    color: @accentColor;
+    border-bottom: 1px solid fadeout(@accentColor, 80%);
+    cursor: pointer;
 
-h1, h2, h3, h4 {
-    margin: 0;
-    padding: 0;
-    line-height: 1em;
-}
-
-h1 {
-    font-size: 2em;
-    text-indent: -.05em;
-}
-
-h2 {
-    font-size: 1.4em;
-    text-indent: -.04em;
-}
-
-h3 {
-    font-size: 1em;
-    text-indent: -.03em;
-}
-
-h4 {
-    font-size: 0.7em;
-    text-transform: uppercase;
-    letter-spacing: 0.2ex;
-}
-
-center {
-    display: block;
-    text-align: center;
-}
-
-em {
-    display: block;
-    font-size: .8em;
-    font-style: normal;
-    opacity: .5;
+    &:hover {
+        border-bottom: 1px solid fadeout(@accentColor, 50%);
+    }
 }
 
 .waist {
@@ -143,11 +148,6 @@ em {
     padding-right: 5vw;
     // padding-top: 3vw;
     // padding-bottom: 3vw;
-}
-
-.static-layout {
-    margin: auto;
-    max-width: 600px;
 }
 
 .loader {

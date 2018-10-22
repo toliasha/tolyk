@@ -2,8 +2,8 @@
 <header class="waist">
     <div class="header-content">
         <div class="tolyk">
-            <p class="tolyk_name">Tolyk.</p>
-            <p class="tolyk_about">{{ $t('about') }}</p>
+            <p class="tolyk__name">Tolyk.</p>
+            <p class="tolyk__about">{{ $t('about') }}</p>
         </div>
         <ul class="lang-switcher">
             <li
@@ -40,20 +40,20 @@ export default {
 </script>
 
 <style lang="less">
-@bg-color: #315;
-@accent-color: #fa0;
+@bgColor: #315;
+@accentColor: #fa0;
 
 .header-content {
     position: relative;
     margin-top: 20px;
 }
 
-.tolyk_name {
+.tolyk__name {
     display: inline-block;
     font-family: 'mono';
     font-size: 10vw;
     font-weight: bold;
-    color: @accent-color;
+    color: @accentColor;
     margin-bottom: 0;
     margin-top: -.1em;
     line-height: initial;
@@ -62,7 +62,7 @@ export default {
         }
 }
 
-.tolyk_about {
+.tolyk__about {
     max-width: 300px;
     margin-bottom: 0;
     margin-top: 1vw;
@@ -90,7 +90,7 @@ export default {
         letter-spacing: 1px;
 
         &_selected {
-            color: @accent-color;
+            color: @accentColor;
             border-bottom: solid 2px;
         }
 
