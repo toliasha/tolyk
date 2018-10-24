@@ -3,7 +3,7 @@
     <div class="header-content">
         <div class="tolyk">
             <p class="tolyk__name">Tolyk.</p>
-            <p class="tolyk__about">{{ $t('about') }}</p>
+            <i class="tolyk__about" v-html="$t('about')"></i>
         </div>
         <ul class="lang-switcher">
             <li
@@ -42,6 +42,11 @@ export default {
 <style lang="less">
 @bgColor: #315;
 @accentColor: #fa0;
+@S: 400px;
+@M: 770px;
+@L: 1000px;
+@XL: 1300px;
+@XXL: 1600px;
 
 .header-content {
     position: relative;
@@ -65,11 +70,15 @@ export default {
 .tolyk__about {
     max-width: 300px;
     margin-bottom: 0;
-    margin-top: 1vw;
+    margin-top: 1.8vw;
     padding-right: 100px;
     display: inline-block;
     vertical-align: top;
-    line-height: 1.2em;
+    line-height: 1.3em;
+    font-style: italic;
+        @media (max-width: @M) {
+            font-size: 15px;
+        }
 }
 
 .lang-switcher {
@@ -79,7 +88,7 @@ export default {
     list-style: none;
     padding: 0;
     margin-bottom: 0;
-    margin-top: .8vw;
+    margin-top: 1.6vw;
 
     &__item {
         display: inline-block;

@@ -1,14 +1,14 @@
 <template>
-<div>
-    <div id="tolyk" ref="tolyk" :class="style">
-        <t-header v-if="!hideBlock"/>
-        <keep-alive>
-            <router-view/>
-        </keep-alive>
+    <div class="body">
+        <div id="tolyk" ref="tolyk" :class="style">
+            <t-header v-if="!hideBlock"/>
+            <keep-alive>
+                <router-view/>
+            </keep-alive>
+        </div>
+        <t-footer v-if="!hideBlock"/>
+        <t-svg/>
     </div>
-    <t-footer v-if="!hideBlock"/>
-    <t-svg/>
-</div>
 </template>
 
 <script>
@@ -58,6 +58,12 @@ export default {
     font-family: 'tolyk';
     src: url('https://cdn.thekarton.com/fonts/regular.woff') format('woff');
     font-weight: normal;
+}
+@font-face {
+    font-family: 'tolyk';
+    src: url('/fonts/neris-regular-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
 }
 @font-face {
     font-family: 'mono';
@@ -122,13 +128,26 @@ html, body {
     color: white;
     -webkit-font-smoothing: antialiased;
     user-select: none;
+    height: 100%;
+}
+
+.body {
+    height: 100%;
 }
 
 #tolyk {
     box-sizing: border-box;
     background-color: @bgColor;
     color: white;
-    padding-bottom: 2em;
+    padding-bottom: 140px;
+    margin-bottom: -140px;
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    @media (max-width: @M) {
+        padding-bottom: 220px;
+        margin-bottom: -220px;
+    }
 }
 
 a {

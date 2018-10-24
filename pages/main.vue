@@ -4,18 +4,15 @@
         <div class="project__title">
             <a :href="project.link" target="_blank">
                 {{ project.title }}<svg class="new-tab" viewBox="0 0 24 21">
-                    <use xlink:href="#new-tab"/>
+                    <use xlink:href="#new-tab" />
                 </svg>
             </a>
         </div>
-        <div class="project__description">
-            {{ project.description[$i18n.locale] }}
+        <div class="project__description" v-html="$t(project.description[$i18n.locale])">
         </div>
-        <div class="project__task">
-            {{ project.task[$i18n.locale] }}
+        <div class="project__task" v-html="$t(project.task[$i18n.locale])">
         </div>
-        <div class="project__year">
-            {{ project.year }}
+        <div class="project__year" v-html="$t(project.year)">
         </div>
     </div>
 </div>
@@ -25,16 +22,15 @@
 export default {
     data() {
         return {
-            projects: [
-                {
+            projects: [{
                     title: 'Karton',
                     link: 'https://thekarton.com/',
                     description: {
-                        uk: 'Я разом з колегою зробили власний проект. Сайт, на якому молоді хлопці та дівчата можуть замовити крутий логотип всього за три дні.',
-                        en: 'I, along with my colleague, made our own project. A site where young people can order a cool logo in just three days.'
+                        uk: 'Я разом з колегою зробили власний проект. Сайт, на&nbspякому молоді хлопці та&nbsp;дівчата можуть замовити крутий логотип всього за&nbspтри дні.',
+                        en: 'I, along with my&nbspcolleague, made our own project. A&nbspsite where young people can order a&nbspcool logo in&nbspjust three days.'
                     },
                     task: {
-                        uk: 'Дизайн сайта і логотипа',
+                        uk: 'Дизайн сайта і&nbspлоготипа',
                         en: 'Site and logo design'
                     },
                     year: '2018'
@@ -43,8 +39,8 @@ export default {
                     title: 'OLL.TV',
                     link: 'https://oll.tv/',
                     description: {
-                        uk: 'Сервіс з великим вибором фільмів, серіалів і телеканалів.',
-                        en: 'A huge library of movies, series and TV-channels.'
+                        uk: 'Сервіс з великим вибором фільмів, серіалів і&nbspтелеканалів.',
+                        en: 'A huge library of&nbspmovies, series and&nbspTV-channels.'
                     },
                     task: {
                         uk: 'Дизайн сайта',
@@ -81,7 +77,6 @@ export default {
 @XXL: 1600px;
 
 .projects-wrap {
-    display: table;
     margin: 5vw -20px 0;
     @media (max-width: @M) {
         margin: 40px -20px 0;
@@ -110,10 +105,10 @@ export default {
             }
 
             & .new-tab {
-                width: .8em;
+                width: 0.8em;
                 vertical-align: bottom;
                 fill: @accentColor;
-                margin-left: .2em;
+                margin-left: 0.2em;
             }
         }
 
