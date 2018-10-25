@@ -20,8 +20,8 @@
         </div>
         <p class="made-by" v-html="$t(made.name[$i18n.locale])"></p>
         <div class="text-me">
-            <a href="mailto:tolykx2@gmail.com">
-                tolykx2@gmail.com<svg class="new-tab" viewBox="0 0 24 21">
+            <a href="mailto:tohax2@gmail.com">
+                tohax2@gmail.com<svg class="new-tab" viewBox="0 0 24 21">
                     <use xlink:href="#new-tab"/>
                 </svg>
             </a>
