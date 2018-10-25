@@ -3,8 +3,6 @@ import Header from './blocks/header.vue';
 Vue.component('t-header', Header);
 import Footer from './blocks/footer.vue';
 Vue.component('t-footer', Footer);
-import Image from './blocks/image.vue';
-Vue.component('t-image', Image);
 import SVG from './blocks/svg.vue';
 Vue.component('t-svg', SVG);
 
