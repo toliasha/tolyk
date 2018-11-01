@@ -1,6 +1,6 @@
 <template>
 <div class="projects-wrap waist XXL-5-col XL-4-col L-3-col M-2-col S-1-col">
-    <div class="project karton grid__box" v-for="project in projects">
+    <div class="project karton grid__box" v-for="project in projects" :id="project.id">
         <div class="project__title">
             <a :href="project.link" target="_blank">
                 {{ project.title }}<svg class="new-tab" viewBox="0 0 24 21">
@@ -24,39 +24,42 @@ export default {
         return {
             projects: [{
                     title: 'Karton',
+                    id: 'karton',
                     link: 'https://thekarton.com/',
                     description: {
-                        uk: 'Я разом з колегою зробили власний проект. Сайт, на&nbspякому молоді хлопці та&nbsp;дівчата можуть замовити крутий логотип всього за&nbspтри дні.',
-                        en: 'I, along with my&nbspcolleague, made our own project. A&nbspsite where young people can order a&nbspcool logo in&nbspjust three days.'
+                        uk: 'Ми разом з&nbspмоїм другом зробили власний проект. Сайт, на&nbspякому кожен може замовити і&nbspотримати крутий логотип всього за&nbspтри дні.',
+                        en: 'Me and my&nbspfriend have created a&nbspnew project, where everyone can order and get a&nbspcool logo in&nbspjust three days.'
                     },
                     task: {
-                        uk: 'Дизайн сайта і&nbspлоготипа',
+                        uk: 'Дизайн сайту і&nbspлоготипу',
                         en: 'Site and logo design'
                     },
                     year: '2018'
                 },
                 {
                     title: 'OLL.TV',
+                    id: 'olltv',
                     link: 'https://oll.tv/',
                     description: {
                         uk: 'Сервіс з великим вибором фільмів, серіалів і&nbspтелеканалів.',
                         en: 'A huge library of&nbspmovies, series and&nbspTV-channels.'
                     },
                     task: {
-                        uk: 'Дизайн сайта',
+                        uk: 'Дизайн сайту',
                         en: 'Site design'
                     },
                     year: '2018'
                 },
                 {
                     title: 'Kyivstar Football',
+                    id: 'ksf',
                     link: 'http://kyivstar.oll.tv/',
                     description: {
-                        uk: 'Сайт для футбольних фанів — трансляція популярних європейських чемпіонатів та кращих футбольних телеканалів України.',
+                        uk: 'Сайт для футбольних фанів — трансляції популярних європейських чемпіонатів та&nbspкращих футбольних телеканалів України.',
                         en: 'Site for football fans — popular European championships and ukrainian football channels stream.'
                     },
                     task: {
-                        uk: 'Дизайн сайта',
+                        uk: 'Дизайн сайту',
                         en: 'Site design'
                     },
                     year: '2017'
@@ -89,7 +92,11 @@ export default {
         padding: 0 20px 30px;
         vertical-align: top;
 
-        & .project__title {
+        &#olltv .project__title {
+            letter-spacing: .1em;
+        }
+
+        .project__title {
             margin-bottom: 10px;
 
             & a {
@@ -122,5 +129,7 @@ export default {
             opacity: 0.5;
         }
     }
+
+
 }
 </style>

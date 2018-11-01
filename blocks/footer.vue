@@ -7,9 +7,9 @@
                     <use xlink:href="#telegram"/>
                 </svg>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=100004984240661" target="_blank">
+            <a href="https://www.linkedin.com/in/tolykd/" target="_blank">
                 <svg class="social__icon" viewBox="0 0 36 36">
-                    <use xlink:href="#facebook"/>
+                    <use xlink:href="#linkedin"/>
                 </svg>
             </a>
             <a href="https://www.instagram.com/tolikdenysiuk/" target="_blank">
@@ -21,9 +21,10 @@
         <p class="made-by" v-html="$t(made.name[$i18n.locale])"></p>
         <div class="text-me">
             <a href="mailto:tohax2@gmail.com">
-                tohax2@gmail.com<svg class="new-tab" viewBox="0 0 24 21">
+                <span v-html="$t(email.link[$i18n.locale])"></span>
+                <!-- <svg class="new-tab" viewBox="0 0 24 21">
                     <use xlink:href="#new-tab"/>
-                </svg>
+                </svg> -->
             </a>
         </div>
 
@@ -39,6 +40,12 @@ export default {
                 name: {
                     uk: 'Зроблено мною',
                     en: 'Made by me'
+                }
+            },
+            email: {
+                link: {
+                    uk: 'Написати мені',
+                    en: 'Email me'
                 }
             }
         }
@@ -87,7 +94,7 @@ export default {
     }
 
     .made-by {
-        opacity: .5;
+        opacity: .3;
         text-align: center;
             @media (max-width: @M) {
                 order: 3;

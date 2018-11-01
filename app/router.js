@@ -20,9 +20,9 @@ const router = new VueRouter({
     }
 });
 
-router.beforeEach((to, from, next) => {
-    document.title = i18n.t(to.name);
-    next();
-});
+// router.beforeEach((to, from, next) => {
+//     document.title = i18n.t(to.name);
+//     next();
+// });
 
 export default router;
