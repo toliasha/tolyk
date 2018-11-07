@@ -27,7 +27,7 @@ export default {
                     id: 'karton',
                     link: 'https://thekarton.com/',
                     description: {
-                        uk: 'Ми разом з&nbspмоїм другом зробили власний проект. Сайт, на&nbspякому кожен може замовити і&nbspотримати крутий логотип всього за&nbspтри дні.',
+                        uk: 'Ми разом з&nbspдругом зробили власний проект. Сайт, на&nbspякому кожен може замовити і&nbspотримати крутий логотип всього за&nbspтри дні.',
                         en: 'Me and my&nbspfriend have created a&nbspnew project, where everyone can order and get a&nbspcool logo in&nbspjust three days.'
                     },
                     task: {
