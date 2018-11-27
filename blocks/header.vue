@@ -2,8 +2,7 @@
 <header class="waist">
     <div class="header-content">
         <div class="tolyk">
-            <p class="tolyk__name">Tolyk.</p>
-            <i class="tolyk__about" v-html="$t('about')"></i>
+            <p class="tolyk__about" v-html="$t('about')"></p>
         </div>
         <ul class="lang-switcher">
             <li
@@ -53,31 +52,18 @@ export default {
     margin-top: 20px;
 }
 
-.tolyk__name {
+.tolyk__about {
     display: inline-block;
-    font-family: 'mono';
-    font-size: 10vw;
-    font-weight: bold;
+    font-size: 7vw;
+    font-weight: 800;
     color: @accentColor;
     margin-bottom: 0;
     margin-top: -.1em;
-    line-height: initial;
-        @media (min-width: 1280px) {
-            font-size: 130px;
-        }
-}
-
-.tolyk__about {
-    max-width: 300px;
-    margin-bottom: 0;
-    margin-top: 1.8vw;
     padding-right: 100px;
-    display: inline-block;
-    vertical-align: top;
-    line-height: 1.3em;
-    font-style: italic;
-        @media (max-width: @M) {
-            font-size: 15px;
+    line-height: initial;
+    max-width: 800px;
+        @media (min-width: @L) {
+            font-size: 70px;
         }
 }
 
@@ -93,14 +79,21 @@ export default {
     &__item {
         display: inline-block;
         cursor: pointer;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 13px;
+        line-height: 20px;
         padding-bottom: 2px;
-        letter-spacing: 1px;
+        letter-spacing: .1em;
+        opacity: .5;
+
+        &:hover {
+            opacity: 1;
+        }
 
         &_selected {
             color: @accentColor;
             border-bottom: solid 2px;
+            opacity: 1;
         }
 
         & + & { margin-left: 1em; }

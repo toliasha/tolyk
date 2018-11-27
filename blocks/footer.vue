@@ -22,9 +22,9 @@
         <div class="text-me">
             <a href="mailto:tohax2@gmail.com">
                 <span v-html="$t(email.link[$i18n.locale])"></span>
-                <!-- <svg class="new-tab" viewBox="0 0 24 21">
+                <svg class="new-tab" viewBox="0 0 24 21">
                     <use xlink:href="#new-tab"/>
-                </svg> -->
+                </svg>
             </a>
         </div>
 
@@ -88,13 +88,13 @@ export default {
             .social__icon {
                 width: 36px;
                 height: 36px;
-                fill: white;
+                fill: @accentColor;
             }
         }
     }
 
     .made-by {
-        opacity: .3;
+        opacity: .5;
         text-align: center;
             @media (max-width: @M) {
                 order: 3;
@@ -106,7 +106,6 @@ export default {
             width: 0.8em;
             vertical-align: bottom;
             fill: @accentColor;
-            margin-left: 0.2em;
         }
             @media (max-width: @M) {
                 order: 2;

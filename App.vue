@@ -49,33 +49,6 @@ export default {
 </script>
 
 <style lang="less">
-@font-face {
-    font-family: 'tolyk';
-    src: url('https://cdn.thekarton.com/fonts/bold.woff') format('woff');
-    font-weight: bold;
-}
-@font-face {
-    font-family: 'tolyk';
-    src: url('https://cdn.thekarton.com/fonts/regular.woff') format('woff');
-    font-weight: normal;
-}
-@font-face {
-    font-family: 'tolyk';
-    src: url('/fonts/neris-regular-italic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'mono';
-    src: url('/fonts/pt-mono-regular.woff') format('woff');
-    font-weight: normal;
-}
-@font-face {
-    font-family: 'mono';
-    src: url('/fonts/pt-mono-bold.woff') format('woff');
-    font-weight: bold;
-}
-
 @bgColor: #315;
 @accentColor: #fa0;
 
@@ -122,10 +95,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 html, body {
-    font-family: tolyk, -apple-system, BlinkMacSystemFont, Segoe UI, Arial;
-    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
     background-color: @bgColor;
-    color: white;
+    color: @accentColor;
     -webkit-font-smoothing: antialiased;
     user-select: none;
     height: 100%;
@@ -138,7 +112,7 @@ html, body {
 #tolyk {
     box-sizing: border-box;
     background-color: @bgColor;
-    color: white;
+    color: @accentColor;
     padding-bottom: 140px;
     margin-bottom: -140px;
     height: auto;
@@ -157,7 +131,7 @@ a {
     cursor: pointer;
 
     &:hover {
-        border-bottom: 1px solid fadeout(@accentColor, 50%);
+        border-bottom: 1px solid fadeout(@accentColor, 0%);
     }
 }
 

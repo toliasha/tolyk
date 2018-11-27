@@ -1,27 +1,34 @@
 <template>
-<div class="projects-wrap waist XXL-5-col XL-4-col L-3-col M-2-col S-1-col">
-    <div class="project karton grid__box" v-for="project in projects" :id="project.id">
-        <div class="project__title">
-            <a :href="project.link" target="_blank">
-                {{ project.title }}<svg class="new-tab" viewBox="0 0 24 21">
-                    <use xlink:href="#new-tab" />
-                </svg>
-            </a>
-        </div>
-        <div class="project__description" v-html="$t(project.description[$i18n.locale])">
-        </div>
-        <div class="project__task" v-html="$t(project.task[$i18n.locale])">
-        </div>
-        <div class="project__year" v-html="$t(project.year)">
+    <div class="projects-wrap waist XXL-5-col XL-4-col L-3-col M-2-col S-1-col">
+        <p v-html="$t(section.title[$i18n.locale])"></p>
+        <div class="project karton grid__box" v-for="project in projects" :id="project.id">
+            <div class="project__title">
+                <a :href="project.link" target="_blank">
+                    {{ project.title }}<svg class="new-tab" viewBox="0 0 24 21">
+                        <use xlink:href="#new-tab" />
+                    </svg>
+                </a>
+            </div>
+            <div class="project__description" v-html="$t(project.description[$i18n.locale])">
+            </div>
+            <div class="project__task" v-html="$t(project.task[$i18n.locale])">
+            </div>
+            <div class="project__year" v-html="$t(project.year)">
+            </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
 export default {
     data() {
         return {
+            section: {
+                title: {
+                    uk: 'Проекти:',
+                    en: 'Projects:'
+                }
+            },
             projects: [{
                     title: 'Karton',
                     id: 'karton',
@@ -85,6 +92,12 @@ export default {
         margin: 40px -20px 0;
     }
 
+    p {
+        padding: 0 20px 30px;
+        font-size: 35px;
+        font-weight: 700;
+    }
+
     .project {
         display: inline-block;
         width: 20%;
@@ -100,15 +113,8 @@ export default {
             margin-bottom: 10px;
 
             & a {
-                font-family: 'mono';
-                font-size: 35px;
-                font-weight: bold;
-                @media (max-width: @M) {
-                    font-size: 25px;
-                }
-                @media (max-width: @S) {
-                    font-size: 20px;
-                }
+                font-size: 20px;
+                font-weight: 700;
             }
 
             & .new-tab {
@@ -120,7 +126,7 @@ export default {
         }
 
         & .project__task {
-            margin-top: 6px;
+            margin-top: 10px;
             opacity: 0.5;
         }
 
