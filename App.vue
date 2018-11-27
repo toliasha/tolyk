@@ -49,6 +49,27 @@ export default {
 </script>
 
 <style lang="less">
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/500.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/700.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    src: url('/fonts/800.ttf');
+}
+
 @bgColor: #315;
 @accentColor: #fa0;
 
