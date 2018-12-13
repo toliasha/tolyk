@@ -61,7 +61,7 @@ export default {
     margin-top: -.1em;
     padding-right: 100px;
     line-height: initial;
-    max-width: 800px;
+    max-width: 850px;
         @media (min-width: @L) {
             font-size: 70px;
         }
