@@ -38,7 +38,7 @@ export default {
         return {
             made: {
                 name: {
-                    uk: 'Зроблено мною',
+                    uk: 'Зробив я',
                     en: 'Made by me'
                 }
             },
